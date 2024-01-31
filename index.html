@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Etch-a-Sketch</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    
+    <button id="button">Change Grid Size</button>
+    <div id="container"></div>
+
+<script>
+
+  const btn = document.querySelector('#button')
+  const container = document.querySelector('#container')
+
+
+  squareCount = 16
+  for (i = 0; i < squareCount; i++) {
+    const row = container.appendChild(document.createElement('div'));
+    row.classList.add('rows')  
+      for (s = 0; s < squareCount; s++) {
+        const squares = document.createElement('div')
+        squares.classList.add('squares')
+        row.appendChild(squares)
+  }}
+
+
+  function resetSquares() {
+    while (container.firstChild) {
+        container.removeChild(container.firstChild)
+    }
+  }
+
+
+  function addSquares() {
+    squareCount = prompt("Input a number of rows between 1 and 100.")
+    while ((squareCount < 0) || (squareCount > 100)) {
+        squareCount = prompt("Invalid choice. Input a number between 1 and 100.")
+    }
+    if ((squareCount >= 1) && (squareCount <= 100)) {
+        for (i = 0; i < squareCount; i++) {
+          const row = container.appendChild(document.createElement('div'));
+          row.classList.add('rows') 
+            for (s = 0; s < squareCount; s++) {
+              const squares = document.createElement('div')
+              squares.classList.add('squares')
+              row.appendChild(squares)
+    }}}}
+  
+  btn.addEventListener('click', () => {
+    resetSquares()
+    addSquares()
+  })
+
+
+
+</script>
+
+</body>
+</html>

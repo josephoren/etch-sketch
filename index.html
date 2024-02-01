@@ -8,15 +8,17 @@
 <body>
     
     <button id="button">Change Grid Size</button>
+    <div id="border">
     <div id="container"></div>
+    </div>
 
 <script>
 
   const btn = document.querySelector('#button')
   const container = document.querySelector('#container')
-
-
-  squareCount = 16
+  const squares = document.createElement('div')
+  
+  squareCount = 16  
   for (i = 0; i < squareCount; i++) {
     const row = container.appendChild(document.createElement('div'));
     row.classList.add('rows')  
@@ -24,19 +26,15 @@
         const squares = document.createElement('div')
         squares.classList.add('squares')
         row.appendChild(squares)
+        squares.addEventListener('mouseover', () => {
+          const randomColor = Math.floor(Math.random()*16777215).toString(16);
+          squares.style.backgroundColor = ('#' + randomColor)
+              })
   }}
-
-
-  function resetSquares() {
-    while (container.firstChild) {
-        container.removeChild(container.firstChild)
-    }
-  }
-
 
   function addSquares() {
     squareCount = prompt("Input a number of rows between 1 and 100.")
-    while ((squareCount < 0) || (squareCount > 100)) {
+    while ((((squareCount < 0) || (squareCount > 100) || (squareCount === '') || (squareCount == null)))) {
         squareCount = prompt("Invalid choice. Input a number between 1 and 100.")
     }
     if ((squareCount >= 1) && (squareCount <= 100)) {
@@ -47,14 +45,22 @@
               const squares = document.createElement('div')
               squares.classList.add('squares')
               row.appendChild(squares)
+              squares.addEventListener('mouseover', () => {
+                const randomColor = Math.floor(Math.random()*16777215).toString(16);
+                squares.style.backgroundColor = ('#' + randomColor)
+              })
     }}}}
   
+    function resetSquares() {
+    while (container.firstChild) {
+        container.removeChild(container.firstChild)
+    }
+  }
+
   btn.addEventListener('click', () => {
     resetSquares()
     addSquares()
   })
-
-
 
 </script>
 

@@ -26,3 +26,16 @@
     flex-direction: column;
     flex: 1;
 }
+
+body {
+    background-color: coral;
+}
+
+#border {
+    border: 1px solid black;
+    height: 710px;
+    width: 1010px;
+    display: flex;
+    margin: auto;
+    background-color: black;
+}
